@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>petGoods home</title>
+    <title>petGoods Shop</title>
     <meta name="keywords" content="">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="description" content="">
@@ -27,7 +27,7 @@
                 </ul>
             </div>
         </div>
-        <h1>홈페이지</h1>
+        <h1>상품 샵</h1>
     </div>
     {{-- <div class="container">
         @foreach ($posts as $post)

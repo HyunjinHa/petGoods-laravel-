@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>petGoods home</title>
+    <title>petGoods Board</title>
     <meta name="keywords" content="">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="description" content="">
@@ -27,16 +27,25 @@
                 </ul>
             </div>
         </div>
-        <h1>홈페이지</h1>
-    </div>
-    {{-- <div class="container">
-        @foreach ($posts as $post)
-            <div class="post">
-                <h2>{{ $post->title }}</h2>
-                <p>{{ $post->body }}</p>
+        <div id="board-wrapper">
+            <h1 class="mt-4 mb-3">{{$post->title}}</h1>
+            <p style="text-align: auto" class="pt-2">{{$post->created_at}}</p>
+
+            <div class="content mt-4" style="height: 100px">
+                <div class="p-3">
+                    {{$post->content}}
+                </div>
             </div>
-        @endforeach
-    </div> --}}
+        </div>
+        {{-- <a href="{{route("posts.edit", $post)}}">수정</a> --}}
+        <input type="button" value="Edit" onclick="location.href='{{route("posts.edit", $post)}}'" />
+        <form action="{{route('posts.destroy', $post->id)}}" method="post" style="display:inline-block;">
+            {{-- delete method와 csrf 처리필요 --}}
+            @method('delete')
+            @csrf
+            <input onclick="return confirm('정말로 삭제하겠습니까?')" type="submit" value="delete"/>
+        </form>
+    </div>
     <div class="copyright">
         Design by: <a href="https://templated.co/">TEMPLATED.CO</a>
     </div>

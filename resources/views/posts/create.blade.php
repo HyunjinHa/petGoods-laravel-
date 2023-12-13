@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>petGoods home</title>
+    <title>petGoods Board</title>
     <meta name="keywords" content="">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="description" content="">
@@ -27,16 +27,31 @@
                 </ul>
             </div>
         </div>
-        <h1>홈페이지</h1>
-    </div>
-    {{-- <div class="container">
-        @foreach ($posts as $post)
-            <div class="post">
-                <h2>{{ $post->title }}</h2>
-                <p>{{ $post->body }}</p>
+        <h1>새 게시글 등록</h1>
+
+        @if ($errors->any())
+            <div class="alert alert-warning" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-        @endforeach
-    </div> --}}
+        @endif
+
+        <form method="POST" action="{{ route('posts.store') }}">
+            @csrf
+            <div class="mb-3">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" class="form-control"autocomplete="off" required>
+            </div>
+            <div class="mb-3" style="margin-top: 20px">
+                <label for="content">Content</label>
+                <textarea id="content" name="content" class="form-control"autocomplete="off" style="margin-top: 0px" required></textarea>
+            </div>
+            <button type="submit" style="margin-inline-start: 50px">등록</button>
+        </form>
+    </div>
     <div class="copyright">
         Design by: <a href="https://templated.co/">TEMPLATED.CO</a>
     </div>
